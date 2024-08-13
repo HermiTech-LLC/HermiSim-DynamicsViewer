@@ -1,0 +1,13 @@
+PyQt5
+numpy<2
+scipy
+matplotlib
+pandas
+pyyaml
+pytest
+pytest-qt
+opencv-python
+pybullet
+pyopengl
+pyqtgraph
+
