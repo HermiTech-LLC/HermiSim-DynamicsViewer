@@ -1,4 +1,4 @@
-# Robotics Simulation Suite
+# A Robotics Simulation Suite
 
 ## Overview
 
