@@ -52,6 +52,7 @@ tests/
 main.py
 README.md
 ```
+
 ## Overview
 
 This Robotics Simulation Suite is a sophisticated application designed for loading URDF/XML files, rendering objects in a 3D space, and running robotic simulations using a physics engine. The application supports multiple tabs and functionalities to provide a comprehensive simulation environment.
@@ -66,8 +67,6 @@ This Robotics Simulation Suite is a sophisticated application designed for loadi
 - **Logs and Debugging**: View logs for debugging and simulation insights.
 - **Modular Design**: The application is modular, allowing easy extension and maintenance.
 
-
-
 ## Installation and Usage
 
 1. **Install dependencies**:
@@ -80,7 +79,7 @@ This Robotics Simulation Suite is a sophisticated application designed for loadi
     python main.py
     ```
 
-#### Components
+## Components
 
 #### `main.py`
 - **Entry Point**: Initializes the PyQt application, applies styles, and sets up the main window.
@@ -108,3 +107,4 @@ This Robotics Simulation Suite is a sophisticated application designed for loadi
 
 - Ensure that PyBullet and PyQt5 are correctly installed.
 - The application is designed to be modular, so new features and sensors can be easily added.
+
