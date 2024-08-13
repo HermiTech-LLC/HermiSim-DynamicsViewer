@@ -1,4 +1,26 @@
-# A Robotics Simulation Suite
+# Robotics Simulation Suite
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Directory Structure](#directory-structure)
+4. [Installation and Usage](#installation-and-usage)
+5. [Components](#components)
+    - [main.py](#mainpy)
+    - [gui/styles.py](#guistylespy)
+    - [gui/main_window.py](#guimain_windowpy)
+    - [gui/file_loader.py](#guifile_loaderpy)
+    - [gui/object_renderer.py](#guiobject_rendererpy)
+    - [gui/simulation_controls.py](#guisimulation_controlspy)
+    - [gui/sensor_data_viewer.py](#guisensor_data_viewerpy)
+    - [gui/tabs/render_tab.py](#guitabsrender_tabpy)
+    - [gui/tabs/simulation_tab.py](#guitabssimulation_tabpy)
+    - [gui/tabs/log_tab.py](#guitabslog_tabpy)
+    - [physics_engine/engine.py](#physics_engineenginepy)
+    - [physics_engine/simulation.py](#physics_enginesimulationpy)
+    - [physics_engine/sensor.py](#physics_enginesensorpy)
+6. [Additional Notes](#additional-notes)
 
 ## Overview
 
@@ -55,42 +77,55 @@ README.md
 ## Components
 
 ### `main.py`
+
 - Entry point of the application. Initializes the PyQt application, applies styles, and creates the main window.
 
 ### `gui/styles.py`
+
 - Defines and applies the application's styles using PyQt.
 
 ### `gui/main_window.py`
+
 - Main window of the application, integrates all tabs and handles file loading.
 
 ### `gui/file_loader.py`
+
 - Handles loading and parsing of URDF/XML files.
 
 ### `gui/object_renderer.py`
+
 - Renders the robot and environment objects in a 3D space.
 
 ### `gui/simulation_controls.py`
+
 - Provides controls for starting, stopping, and resetting the simulation, as well as adjusting the simulation speed.
 
 ### `gui/sensor_data_viewer.py`
+
 - Displays sensor data in a tabular format, updating in real-time.
 
 ### `gui/tabs/render_tab.py`
+
 - Contains the render view for visualizing the robot and environment.
 
 ### `gui/tabs/simulation_tab.py`
+
 - Contains simulation control elements.
 
 ### `gui/tabs/log_tab.py`
+
 - Displays logs and debugging information.
 
 ### `physics_engine/engine.py`
+
 - Manages the connection to the PyBullet physics engine and handles simulation stepping.
 
 ### `physics_engine/simulation.py`
+
 - Controls the simulation, including starting, stopping, resetting, and updating sensors.
 
 ### `physics_engine/sensor.py`
+
 - Simulates various sensors (IMU, Lidar, Camera) and provides realistic data.
 
 ## Additional Notes
