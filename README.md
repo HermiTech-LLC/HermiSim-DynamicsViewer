@@ -25,20 +25,6 @@ ___
 ![hsl](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/HSlogo.jpg)
 ___
 
-## Overview
-
-This Robotics Simulation Suite is a sophisticated application designed for loading URDF/XML files, rendering objects in a 3D space, and running robotic simulations using a physics engine. The application supports multiple tabs and functionalities to provide a comprehensive simulation environment.
-
-## Features
-
-- **Load URDF/XML Files**: Load and parse URDF/XML files to simulate robots.
-- **3D Rendering**: Visualize robots and environments in 3D using PyQt and PyBullet.
-- **Physics Engine**: Leverage PyBullet for realistic physics simulations.
-- **Sensor Data**: Simulate and display data from various sensors like IMU, Lidar, and Camera.
-- **Simulation Controls**: Start, stop, reset simulations, and control simulation speed.
-- **Logs and Debugging**: View logs for debugging and simulation insights.
-- **Modular Design**: The application is modular, allowing easy extension and maintenance.
-
 ## Directory Structure
 
 ```
@@ -64,6 +50,21 @@ tests/
 main.py
 README.md
 ```
+## Overview
+
+This Robotics Simulation Suite is a sophisticated application designed for loading URDF/XML files, rendering objects in a 3D space, and running robotic simulations using a physics engine. The application supports multiple tabs and functionalities to provide a comprehensive simulation environment.
+
+## Features
+
+- **Load URDF/XML Files**: Load and parse URDF/XML files to simulate robots.
+- **3D Rendering**: Visualize robots and environments in 3D using PyQt and PyBullet.
+- **Physics Engine**: Leverage PyBullet for realistic physics simulations.
+- **Sensor Data**: Simulate and display data from various sensors like IMU, Lidar, and Camera.
+- **Simulation Controls**: Start, stop, reset simulations, and control simulation speed.
+- **Logs and Debugging**: View logs for debugging and simulation insights.
+- **Modular Design**: The application is modular, allowing easy extension and maintenance.
+
+
 
 ## Installation and Usage
 
