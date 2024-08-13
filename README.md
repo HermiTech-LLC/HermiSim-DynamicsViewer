@@ -22,7 +22,9 @@ ___
     - [physics_engine/sensor.py](#physics_enginesensorpy)
 6. [Additional Notes](#additional-notes)
 ___
-![hsl](
+![hsl](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/HSlogo.jpg)
+___
+
 ## Overview
 
 This Robotics Simulation Suite is a sophisticated application designed for loading URDF/XML files, rendering objects in a 3D space, and running robotic simulations using a physics engine. The application supports multiple tabs and functionalities to provide a comprehensive simulation environment.
