@@ -80,7 +80,7 @@ This Robotics Simulation Suite is a sophisticated application designed for loadi
     python main.py
     ```
 
-## Components
+#### Components
 
 #### `main.py`
 - **Entry Point**: Initializes the PyQt application, applies styles, and sets up the main window.
