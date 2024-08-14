@@ -19,7 +19,7 @@ import os  # For working with file paths
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Robotics Simulation Suite")
+        self.setWindowTitle("HermiSim Simulation Suite")
         self.setGeometry(100, 100, 1200, 800)
 
         self.simulation = Simulation()
