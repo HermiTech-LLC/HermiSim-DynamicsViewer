@@ -5,15 +5,14 @@ from PyQt5.QtWidgets import (
     QVBoxLayout, QHBoxLayout, QWidget, QTabWidget, QTableWidget, QTableWidgetItem, QComboBox, QHeaderView
 )
 from PyQt5.QtCore import Qt, QTimer
-from robodk import robolink, robomath
+import pybullet_data
 
 class URDFGeneratorApp(QMainWindow):
     def __init__(self):
         super().__init__()
         self.initUI()
-        self.robodk = robolink.Robolink()
-        self.robot_item = None
         self.physics_client = None
+        self.robot_id = None
 
     def initUI(self):
         self.setWindowTitle('Comprehensive URDF Generator with Real-Time Preview')
@@ -32,7 +31,7 @@ class URDFGeneratorApp(QMainWindow):
         content_layout.addLayout(interface_layout)
 
         # Load Robot button
-        self.btn_load_robot = QPushButton('Load Robot', self)
+        self.btn_load_robot = QPushButton('Load URDF', self)
         self.btn_load_robot.clicked.connect(self.load_robot)
         interface_layout.addWidget(self.btn_load_robot)
 
@@ -154,18 +153,19 @@ class URDFGeneratorApp(QMainWindow):
 
     def init_pybullet(self):
         self.physics_client = p.connect(p.DIRECT)  # Use DIRECT mode for headless rendering
+        p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.81, physicsClientId=self.physics_client)
         p.configureDebugVisualizer(p.COV_ENABLE_GUI, 0, physicsClientId=self.physics_client)
 
     def update_pybullet_view(self):
-        if self.robot_item is not None and self.robot_item.Valid():
+        if self.robot_id is not None:
             self.refresh_pybullet_view()
 
     def refresh_pybullet_view(self):
         p.resetSimulation(physicsClientId=self.physics_client)
-        urdf_data = self.robot_item.ExportURDFString()
-        robot_id = p.loadURDF(urdf_data, physicsClientId=self.physics_client)
-        p.resetBasePositionAndOrientation(robot_id, [0, 0, 0], p.getQuaternionFromEuler([0, 0, 0]), physicsClientId=self.physics_client)
+        p.loadURDF("plane.urdf", physicsClientId=self.physics_client)  # Load a plane for reference
+        if self.robot_id is not None:
+            p.resetBasePositionAndOrientation(self.robot_id, [0, 0, 0], p.getQuaternionFromEuler([0, 0, 0]), physicsClientId=self.physics_client)
 
         # Render side view
         width, height, rgb_img, depth_img, seg_img = p.getCameraImage(
@@ -214,6 +214,19 @@ class URDFGeneratorApp(QMainWindow):
         self.sensors_table.setItem(row_count, 2, QTableWidgetItem('AttachedLink'))
         self.refresh_pybullet_view()
 
+    def load_robot(self):
+        file_dialog = QFileDialog()
+        file_path, _ = file_dialog.getOpenFileName(self, "Load URDF File", "", "URDF Files (*.urdf);;All Files (*)")
+        if file_path:
+            self.robot_id = p.loadURDF(file_path, physicsClientId=self.physics_client)
+            if self.robot_id is None:
+                QMessageBox.critical(self, 'Error', 'Failed to load URDF file.')
+            else:
+                self.btn_generate.setEnabled(True)
+                self.btn_save.setEnabled(True)
+                QMessageBox.information(self, 'Success', 'URDF file loaded successfully.')
+                self.refresh_pybullet_view()
+
     def generate_urdf(self):
         if not self.validate_inputs():
             return
@@ -221,26 +234,14 @@ class URDFGeneratorApp(QMainWindow):
         save_dialog = QFileDialog()
         save_path, _ = save_dialog.getSaveFileName(self, "Save URDF File", "", "URDF Files (*.urdf);;All Files (*)")
         if save_path:
-            urdf_options = self.create_urdf_options()
-            success = self.robot_item.ExportURDF(save_path, urdf_options)
-            if success:
-                QMessageBox.information(self, 'Success', f'URDF file generated successfully at {save_path}.')
-            else:
-                QMessageBox.critical(self, 'Error', 'Failed to generate URDF file.')
+            # Here you can implement saving your URDF based on the inputs given
+            with open(save_path, 'w') as urdf_file:
+                urdf_file.write('<robot name="{}">\n'.format(self.input_name.text()))
+                urdf_file.write('</robot>\n')  # Simplified example, expand as needed
+            QMessageBox.information(self, 'Success', f'URDF file saved successfully at {save_path}.')
 
     def save_urdf(self):
-        if not self.validate_inputs():
-            return
-
-        save_dialog = QFileDialog()
-        save_path, _ = save_dialog.getSaveFileName(self, "Save URDF File", "", "URDF Files (*.urdf);;All Files (*)")
-        if save_path:
-            urdf_options = self.create_urdf_options()
-            success = self.robot_item.ExportURDF(save_path, urdf_options)
-            if success:
-                QMessageBox.information(self, 'Success', f'URDF file saved successfully at {save_path}.')
-            else:
-                QMessageBox.critical(self, 'Error', 'Failed to save URDF file.')
+        self.generate_urdf()  # Just calls the same method for simplicity
 
     def validate_inputs(self):
         name = self.input_name.text().strip()
