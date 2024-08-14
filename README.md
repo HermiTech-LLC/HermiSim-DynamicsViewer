@@ -1,7 +1,7 @@
 # A Robotics Simulation Suite
 
 ![img](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/IMG_1637.png)
-*note: the missing Qbox/ QText element definitions and errors have been, patched and defined😅.
+*Note: The missing QBox/QText element definitions and errors have been patched and defined.*
 ___
 ## Table of Contents
 
@@ -27,6 +27,8 @@ ___
         - [engine.py](#enginepy)
         - [simulation.py](#simulationpy)
         - [sensor.py](#sensorpy)
+    - [Utilities](#utilities)
+        - [urdf.py](#urdfpy)
 6. [Additional Notes](#additional-notes)
 ___
 ![hsl](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/HSlogo.jpg)
@@ -38,24 +40,26 @@ ___
 HERMISIM/
 │
 ├──gui/
-│   ├── styles.py
-│   ├── main_window.py
-│   ├── file_loader.py
-│   ├── object_renderer.py
-│   ├── simulation_controls.py
-│   ├── sensor_data_viewer.py
-│   ├── tabs/
-│   │   ├── render_tab.py
-│   │   ├── simulation_tab.py
-│   │   ├── log_tab.py
-│   │   ├── sensor_tab.py
-physics_engine/
-│   ├── engine.py
-│   ├── simulation.py
-│   ├── sensor.py
-tests/
-main.py
-README.md
+│ ├── styles.py
+│ ├── main_window.py
+│ ├── file_loader.py
+│ ├── object_renderer.py
+│ ├── simulation_controls.py
+│ ├── sensor_data_viewer.py
+│ ├── tabs/
+│ │ ├── render_tab.py
+│ │ ├── simulation_tab.py
+│ │ ├── log_tab.py
+│ │ ├── sensor_tab.py
+├──physics_engine/
+│ ├── engine.py
+│ ├── simulation.py
+│ ├── sensor.py
+├──utils/
+│ ├── urdf.py
+├──tests/
+└──main.py
+└──README.md
 ```
 
 ## Overview
@@ -88,10 +92,10 @@ This Robotics Simulation Suite is a sophisticated application designed for loadi
 
 ## Components
 
-#### `main.py`
+### `main.py`
 - **Entry Point**: Initializes the PyQt application, applies styles, and sets up the main window.
 
-#### GUI Components
+### GUI Components
 - **`styles.py`**: Defines and applies visual styles using PyQt.
 - **`main_window.py`**: Hosts the main window, integrates tabs, and manages file loading.
 - **`file_loader.py`**: Loads and parses URDF/XML files for the simulation.
@@ -99,19 +103,21 @@ This Robotics Simulation Suite is a sophisticated application designed for loadi
 - **`simulation_controls.py`**: Controls for starting, stopping, resetting simulations, and adjusting speed.
 - **`sensor_data_viewer.py`**: Displays real-time sensor data in a tabular format.
 
-#### Tabs
+### Tabs
 - **`render_tab.py`**: Visualization of robots and environments.
 - **`simulation_tab.py`**: Contains elements for controlling the simulation.
 - **`log_tab.py`**: Displays logs and debugging information.
 - **`sensor_tab.py`**: Manages and displays sensor-related data.
 
-#### Physics Engine
+### Physics Engine
 - **`engine.py`**: Manages connection to the PyBullet engine and handles simulation steps.
 - **`simulation.py`**: Controls simulation operations, including start, stop, reset, and sensor updates.
 - **`sensor.py`**: Simulates IMU, Lidar, Camera sensors, and provides realistic data.
+
+### Utilities
+- **`urdf.py`**: Provides a graphical interface for designing and generating URDF files, complete with real-time preview using PyBullet.
 
 ## Additional Notes
 
 - Ensure that PyBullet and PyQt5 are correctly installed.
 - The application is designed to be modular, so new features and sensors can be easily added.
-
