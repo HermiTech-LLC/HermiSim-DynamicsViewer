@@ -15,7 +15,7 @@ class URDFGeneratorApp(QMainWindow):
         self.robot_id = None
 
     def initUI(self):
-        self.setWindowTitle('Comprehensive URDF Generator with Real-Time Preview')
+        self.setWindowTitle('URDF Designer')
         self.setGeometry(100, 100, 1200, 600)
 
         # Central widget and layout
