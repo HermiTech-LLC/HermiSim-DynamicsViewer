@@ -13,6 +13,8 @@ from physics_engine.engine import PhysicsEngine
 from physics_engine.sensor import Sensor
 from physics_engine.simulation import Simulation
 import logging
+import subprocess  # For launching the URDF design tool
+import os  # For working with file paths
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -51,6 +53,10 @@ class MainWindow(QMainWindow):
         load_action.triggered.connect(self.load_file)
         file_menu.addAction(load_action)
 
+        urdf_design_action = QAction('Launch URDF Design Tool', self)  # New Action for URDF Design
+        urdf_design_action.triggered.connect(self.launch_urdf_design_tool)
+        file_menu.addAction(urdf_design_action)  # Add it to the File menu
+
         exit_action = QAction('Exit', self)
         exit_action.triggered.connect(self.close)
         file_menu.addAction(exit_action)
@@ -66,6 +72,15 @@ class MainWindow(QMainWindow):
             except Exception as e:
                 self.logger.error(f"Failed to load file: {file_path}, Error: {e}")
                 QMessageBox.critical(self, "Error", f"Failed to load file: {e}")
+
+    def launch_urdf_design_tool(self):
+        """Launch the URDF design tool as a separate process."""
+        try:
+            script_path = os.path.join(os.path.dirname(__file__), 'utils', 'urdf.py')
+            subprocess.Popen([sys.executable, script_path])
+        except Exception as e:
+            self.logger.error(f"Failed to launch URDF design tool: {e}")
+            QMessageBox.critical(self, "Error", f"Failed to launch URDF design tool: {e}")
 
 def initialize_tabs(simulation):
     """Initialize and return the tabs for the main window."""
