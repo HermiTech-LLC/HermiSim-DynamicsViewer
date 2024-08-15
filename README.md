@@ -62,7 +62,10 @@ HERMISIM/
 └──main.py
 └──README.md
 ```
+___
+![screenshot](https://github.com/HermiTech-LLC/HermiSim-DynamicsViewer/blob/main/Screenshot%20from%202024-08-15%2009-23-04.png)
 
+___
 ## Overview
 
 This Robotics Simulation Suite is a sophisticated application designed for loading URDF/XML files, rendering objects in a 3D space, and running robotic simulations using a physics engine. The application supports multiple tabs and functionalities to provide a comprehensive simulation environment.
