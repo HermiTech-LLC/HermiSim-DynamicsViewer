@@ -1,4 +1,5 @@
-# A Robotics Simulation Suite
+# HermiSim- 
+A Robotics Simulation Suite
 
 ![hsl](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/HSlogo.jpg)
 ___
