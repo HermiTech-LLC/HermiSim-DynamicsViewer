@@ -92,7 +92,7 @@ This Robotics Simulation Suite is an application designed for loading URDF/XML f
 
 2. **Run the application**:
     ```bash
-    python main.py
+    python3 main.py
     ```
 
 ## Components
