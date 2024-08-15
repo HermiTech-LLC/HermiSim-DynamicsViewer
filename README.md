@@ -1,8 +1,6 @@
 # A Robotics Simulation Suite
 
 ![hsl](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/HSlogo.jpg)
-> [!NOTE]
->  The missing QBox/QText element definitions and errors have been patched and defined.*
 ___
 ## Table of Contents
 
@@ -33,6 +31,8 @@ ___
 6. [Additional Notes](#additional-notes)
 ___
 ![img](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/IMG_1637.png)
+> [!NOTE]
+>  The missing QBox/QText element definitions and errors have been patched and defined.
 ___
 
 ## Directory Structure
