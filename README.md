@@ -1,6 +1,6 @@
 # A Robotics Simulation Suite
 
-![img](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/IMG_1637.png)
+![hsl](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/HSlogo.jpg)
 > [!NOTE]
 >  The missing QBox/QText element definitions and errors have been patched and defined.*
 ___
@@ -32,7 +32,7 @@ ___
         - [urdf.py](#urdfpy)
 6. [Additional Notes](#additional-notes)
 ___
-![hsl](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/HSlogo.jpg)
+![img](https://github.com/LoQiseaking69/HermiSim-DynamicsViewer/blob/main/IMG_1637.png)
 ___
 
 ## Directory Structure
